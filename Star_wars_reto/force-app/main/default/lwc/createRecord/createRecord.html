@@ -1,0 +1,35 @@
+<template>
+  <lightning-card title="Búsqueda por número de personaje" icon-name="custom:custom70">
+    <div class="slds-m-around_medium">
+        <lightning-input type="Search" value={searchKey} onchange={handleKeyChange} class="slds-m-bottom_small" label="Buscar número" ></lightning-input>
+        <lightning-card title="Información del personaje">
+            <template if:true={fields}>
+                <lightning-record-edit-form object-api-name="Contact" onsuccess={handleSuccess}  >
+                    <lightning-input-field field-name="LastName" value={fields.name} disabled="true">  </lightning-input-field>
+                    <lightning-input-field field-name="Height__c" value={fields.height} disabled="true">  </lightning-input-field>
+                  <lightning-input-field field-name="Gender__c" value={fields.gender} disabled="true">  </lightning-input-field>
+                    <lightning-input-field field-name="Hair_color__c" value={fields.hair_color} disabled="true"></lightning-input-field>
+                    <lightning-input-field field-name="Eye_color__c" value={fields.eye_color} disabled="true">  </lightning-input-field>
+                    <lightning-input-field field-name="URL__c" value={fields.url} disabled="true"> </lightning-input-field>
+                    <lightning-input-field field-name="Homeworld__c" value={fields.homeworld} disabled="true">  </lightning-input-field>
+                    <lightning-input-field field-name="Number_character__c" disabled="true" >  </lightning-input-field>
+                    <lightning-button class="slds-m-top_small"
+                                      type="submit"
+                                      label="Create new" >
+                    </lightning-button>
+                </lightning-record-edit-form> 
+            </template>
+        </lightning-card>    
+            
+    </div>
+    <lightning-card title="Contacts List" icon-name="custom:custom99">
+        <lightning-datatable
+            key-field="Id"
+            data={contacts.data}
+            columns={contactColumns}>
+        </lightning-datatable>
+    </lightning-card>
+</lightning-card>
+
+ 
+</template>

@@ -1,0 +1,16 @@
+ <template>
+    <lightning-card title="Búsqueda por número de personaje" icon-name="custom:custom70">
+        <div class="slds-m-around_medium">
+            <lightning-input type="Search" value={searchKey} onchange={handleKeyChange} class="slds-m-bottom_small" label="Buscar número"  ></lightning-input>
+
+            <lightning-card title="Información del personaje">
+                <div class="slds-m-around_medium">
+                    {contacts}
+                </div>
+            </lightning-card>    
+                <template if:true={error}>
+                    <p>El buscador está vacío{error} </p>
+                </template>
+        </div>
+    </lightning-card>
+        </template>

@@ -1,0 +1,50 @@
+
+
+<template>   
+    <lightning-card title="Búsqueda por número de personaje" icon-name="custom:custom70">
+        <div class="slds-m-around_medium">
+            <lightning-input type="Search" value={searchKey} onchange={handleKeyChange} class="slds-m-bottom_small" label="Buscar número"  ></lightning-input>
+
+            <lightning-card title="Información del personaje">
+                <div class="slds-m-around_medium">
+                    {contact}
+                </div>
+            </lightning-card>    
+                <template if:true={error}>
+                    <p>El buscador está vacío{error} </p>
+                </template>
+        </div>
+    </lightning-card>
+<!--sdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdf
+
+<lightning-card title="Prueba trayendo dato al input">
+    <lightning-layout>
+        <lightning-layout-item>
+            <lightning-record-edit-form
+            object-api-name="Contact"
+            onsuccess={handleSuccess}>
+        <input value={contact}>
+            </lightning-record-edit-form>
+        </lightning-layout-item>
+    </lightning-layout>
+</lightning-card>-->
+<!--sdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsdf-->
+        
+    
+    <lightning-card class="" title="Crear un nuevo contacto Star Wars" icon-name="custom:custom80">
+        <lightning-record-form
+            object-api-name="Contact"
+            fields={fields}
+            onsuccess={handleSuccess}>
+        </lightning-record-form>
+    </lightning-card> 
+    
+    
+    <lightning-card title="Contacts List" icon-name="custom:custom99">
+        <lightning-datatable
+            key-field="Id"
+            data={contacts.data}
+            columns={contactColumns}>
+        </lightning-datatable>
+    </lightning-card>
+</template>
